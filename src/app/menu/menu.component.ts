@@ -1,0 +1,23 @@
+import {Component, OnInit} from '@angular/core';
+import {faHome, faImages, faSignInAlt, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
+})
+export class MenuComponent implements OnInit {
+  icons = {
+    home: faHome,
+    memes: faImages,
+    register: faUserPlus,
+    login: faSignInAlt
+  };
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+
+}

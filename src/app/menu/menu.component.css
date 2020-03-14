@@ -1,0 +1,29 @@
+.navbar {
+  height: 60px;
+}
+
+.btn-menu {
+  background-color: inherit;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 24px;
+  transition-duration: 0.7s;
+}
+
+.btn-menu:hover {
+  border-bottom: 1px solid white;
+  padding-bottom: 9px;
+}
+
+.btn-menu:focus {
+  outline: 0;
+}
+
+.btn-menu:link {
+   color: red;
+ }
+
+a {
+  color: inherit;
+}
