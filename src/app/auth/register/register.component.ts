@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
@@ -19,7 +19,7 @@ export interface User {
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm;
+  registerForm: FormGroup;
 
   constructor(private readonly formBuilder: FormBuilder,
               private readonly http: HttpClient,
