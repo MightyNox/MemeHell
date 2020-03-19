@@ -41,7 +41,13 @@ export class LoginComponent implements OnInit {
     };
 
     const url = '/api/users/auth';
-    await this.http.post(url, credentials).toPromise();
-    await this.router.navigate(['home']);
+    try {
+      const user = await this.http.post(url, credentials).toPromise();
+      await this.router.navigate(['home']);
+    } catch (e) {
+      if (e.status === 400) {
+        alert('Invalid credentials!');
+      }
+    }
   }
 }
