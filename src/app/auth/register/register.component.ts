@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 
 export interface User {
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
   registerForm;
 
   constructor(private readonly formBuilder: FormBuilder,
-              private readonly http: HttpClient) {
+              private readonly http: HttpClient,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -32,9 +34,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  async onSubmit() {
+  async register() {
     if (!this.registerForm.valid) {
-      alert('User form is not valid!!');
+      alert('User form is not valid!'); // TODO add baner
       return;
     }
 
@@ -48,9 +50,6 @@ export class RegisterComponent implements OnInit {
 
     const url = '/api/users/register';
     await this.http.post(url, user).toPromise();
-  }
-
-  async register() {
-
+    await this.router.navigate(['login']);
   }
 }
