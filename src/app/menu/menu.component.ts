@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faHome, faImages, faSignInAlt, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import {faFileUpload, faHome, faImages, faSignInAlt, faUserPlus} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +9,8 @@ import {faHome, faImages, faSignInAlt, faUserPlus} from '@fortawesome/free-solid
 export class MenuComponent implements OnInit {
   icons = {
     home: faHome,
-    memes: faImages,
+    memeReview: faImages,
+    memeUpload: faFileUpload,
     register: faUserPlus,
     login: faSignInAlt
   };

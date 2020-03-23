@@ -9,16 +9,15 @@ import {MenuComponent} from './menu/menu.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {MemesComponent} from './memes/memes.component';
 import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
+import {MemeModule} from './meme/meme.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent,
-    MemesComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +26,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatMenuModule,
     MatIconModule,
     FontAwesomeModule,
+    MemeModule,
     AuthModule,
     HttpClientModule
   ],
