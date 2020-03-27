@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
-
-export interface Credentials {
-  username: string;
-  password: string;
-}
+import {AuthService} from '../../services/auth.service';
+import {Credentials} from '../../models/credentials.model';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   constructor(private readonly formBuilder: FormBuilder,
-              private readonly http: HttpClient,
-              private readonly router: Router) {
+              private readonly authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -40,10 +34,8 @@ export class LoginComponent implements OnInit {
       password: formValues.password,
     };
 
-    const url = '/api/users/auth';
     try {
-      const user = await this.http.post(url, credentials).toPromise();
-      await this.router.navigate(['home']);
+      await this.authService.login(credentials);
     } catch (e) {
       if (e.status === 400) {
         alert('Invalid credentials!');
