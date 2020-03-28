@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -10,7 +10,8 @@ export class MemeReviewComponent implements OnInit {
 
   private memesData;
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {
+  }
 
   async ngOnInit(): Promise<void> {
     const url = '/api/memes/get';

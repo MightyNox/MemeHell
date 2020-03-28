@@ -4,7 +4,15 @@
 
     <div class="col-md-6 text-center">
       <div *ngFor="let meme of MemesData">
-        {{meme.title}}
+        {{meme.title}} <br>
+        <div *ngIf="meme.type === 'mp4'">
+          <video controls>
+            <source src="/api/memes/single/{{meme.id}}">
+          </video>
+        </div>
+        <div *ngIf="meme.type !== 'mp4'">
+          <img src="/api/memes/single/{{meme.id}}" alt="Meme not found :(">
+        </div>
       </div>
     </div>
 
