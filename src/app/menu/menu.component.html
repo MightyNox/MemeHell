@@ -19,7 +19,7 @@
         </button>
       </a>
     </li>
-    <li>
+    <li *ngIf="authService.CurrentUser">
       <a routerLink="/meme/upload">
         <button class="btn-menu">
           <fa-icon [icon]="icons.memeUpload"></fa-icon>
@@ -29,17 +29,24 @@
   </ul>
 
   <ul class="navbar-nav ml-auto">
-    <li>
+    <li *ngIf="!authService.CurrentUser">
       <a routerLink="/register">
         <button class="btn-menu">
           <fa-icon [icon]="icons.register"></fa-icon>
         </button>
       </a>
     </li>
-    <li>
+    <li *ngIf="!authService.CurrentUser">
       <a routerLink="/login">
         <button class="btn-menu">
           <fa-icon [icon]="icons.login"></fa-icon>
+        </button>
+      </a>
+    </li>
+    <li *ngIf="authService.CurrentUser">
+      <a routerLink="/logout">
+        <button class="btn-menu">
+          <fa-icon [icon]="icons.logout"></fa-icon>
         </button>
       </a>
     </li>

@@ -1,5 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {faFileUpload, faHome, faImages, faSignInAlt, faUserPlus} from '@fortawesome/free-solid-svg-icons';
+import {
+  faFileUpload,
+  faHome,
+  faImages,
+  faSignInAlt,
+  faSignOutAlt,
+  faUserPlus
+} from '@fortawesome/free-solid-svg-icons';
+import {AuthService} from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,10 +20,11 @@ export class MenuComponent implements OnInit {
     memeReview: faImages,
     memeUpload: faFileUpload,
     register: faUserPlus,
-    login: faSignInAlt
+    login: faSignInAlt,
+    logout: faSignOutAlt
   };
 
-  constructor() {
+  constructor(readonly authService: AuthService) {
   }
 
   ngOnInit(): void {

@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  public currentUser$: BehaviorSubject<User>;
+  private currentUser$: BehaviorSubject<User>;
 
   constructor(private readonly http: HttpClient,
               private readonly router: Router) {
@@ -29,5 +29,9 @@ export class AuthService {
     localStorage.removeItem('user');
     this.currentUser$.next(null);
     await this.router.navigate(['home']);
+  }
+
+  get CurrentUser(): User | null {
+    return this.currentUser$.value;
   }
 }

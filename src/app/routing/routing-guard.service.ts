@@ -9,7 +9,7 @@ export class RoutingGuardService implements CanActivate {
   }
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const currentUser = this.authService.currentUser$.value;
+    const currentUser = this.authService.CurrentUser;
     if (currentUser) {
       return true;
     }
