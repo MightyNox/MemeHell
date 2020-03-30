@@ -4,14 +4,31 @@
 
     <div class="col-md-6 text-center">
       <div *ngFor="let meme of MemesData">
-        {{meme.title}} <br>
-        <div *ngIf="meme.type === 'mp4'">
-          <video controls>
-            <source src="/api/memes/single/{{meme.id}}">
-          </video>
-        </div>
-        <div *ngIf="meme.type !== 'mp4'">
-          <img src="/api/memes/single/{{meme.id}}" alt="Meme not found :(">
+        <div class="card text-white bg-dark" style="margin: 5% 0">
+
+          <div class="card-header">
+            <h5 class="card-title text-left">
+              [Avatar] {{meme.title}}
+            </h5>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item text-left bg-secondary">
+              {{meme.tags}}
+            </li>
+          </ul>
+
+          <div *ngIf="meme.type === 'mp4'">
+            <video controls class="card-img-bottom" >
+              <source src="/api/memes/single/{{meme.id}}">
+            </video>
+          </div>
+          <div *ngIf="meme.type !== 'mp4'">
+            <img class="card-img-bottom" src="/api/memes/single/{{meme.id}}" alt="Meme not found :(">
+          </div>
+
+          <div class="card-footer text-left">
+            30.03.2020/21:00
+          </div>
         </div>
       </div>
     </div>
