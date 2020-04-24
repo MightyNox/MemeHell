@@ -6,6 +6,7 @@ import {LoginComponent} from '../auth/components/login/login.component';
 import {RegisterComponent} from '../auth/components/register/register.component';
 import {RoutingGuardService} from './routing-guard.service';
 import {LogoutComponent} from '../auth/components/logout/logout.component';
+import {MemeViewComponent} from '../meme/meme-view/meme-view.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'meme',
     component: MemeReviewComponent
+  },
+  {
+    path: 'meme/:id',
+    component: MemeViewComponent
   },
   {
     path: 'meme/upload',
