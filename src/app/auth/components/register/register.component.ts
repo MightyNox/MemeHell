@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     }
 
     const formValues = this.registerForm.value;
-    const user: User = {
+    const user: Partial<User> = {
       nickname: formValues.nickname,
       email: formValues.email,
       password: formValues.password,

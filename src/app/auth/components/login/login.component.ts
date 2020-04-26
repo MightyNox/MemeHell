@@ -14,13 +14,14 @@ export class LoginComponent implements OnInit {
 
   constructor(private readonly formBuilder: FormBuilder,
               private readonly authService: AuthService) {
-  }
 
-  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       nickname: ['', [Validators.required, Validators.min(3)]],
       password: ['', [Validators.required, Validators.min(5)]],
     });
+  }
+
+  ngOnInit(): void {
   }
 
   async login() {

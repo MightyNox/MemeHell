@@ -20,14 +20,16 @@ const routes: Routes = [
   },
   {
     path: 'meme',
+    pathMatch: 'full',
     component: MemeReviewComponent
   },
   {
     path: 'meme/:id',
-    component: MemeViewComponent
+    component: MemeViewComponent,
+    canActivate: [RoutingGuardService]
   },
   {
-    path: 'meme/upload',
+    path: 'meme-upload',
     component: MemeUploadComponent,
     canActivate: [RoutingGuardService]
   },
