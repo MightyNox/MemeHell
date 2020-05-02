@@ -28,8 +28,7 @@ export class MemeViewComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
     this.meme = await this.http.get(`/api/memes/get/${id}`).toPromise();
-
-    this.comments = await this.getComments();
+    await this.getComments();
   }
 
   async rateUp() {
