@@ -26,6 +26,13 @@
         </button>
       </a>
     </li>
+    <li *ngIf="authService.CurrentUser && authService.CurrentUser.rank === 'admin'">
+      <a routerLink="/logout">
+        <button class="btn-menu">
+          <fa-icon [icon]="icons.stats"></fa-icon>
+        </button>
+      </a>
+    </li>
   </ul>
 
   <ul class="navbar-nav ml-auto">

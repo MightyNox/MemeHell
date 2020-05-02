@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {
+  faChartPie,
   faFileUpload,
   faHome,
   faImages,
@@ -21,7 +22,8 @@ export class MenuComponent implements OnInit {
     memeUpload: faFileUpload,
     register: faUserPlus,
     login: faSignInAlt,
-    logout: faSignOutAlt
+    logout: faSignOutAlt,
+    stats: faChartPie
   };
 
   constructor(readonly authService: AuthService) {
