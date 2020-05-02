@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import {AuthService} from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MemeReviewComponent implements OnInit {
 
+  trashIcon;
   private memesData;
   private page: number;
   private pagesCount: number;
@@ -15,7 +18,9 @@ export class MemeReviewComponent implements OnInit {
 
   memesUrl = '/api/memes/page';
 
-  constructor(private readonly http: HttpClient) {
+  constructor(private readonly http: HttpClient,
+              readonly auth: AuthService) {
+    this.trashIcon = faTrashAlt;
     this.mediaLimit = 10;
     this.page = 1;
   }
@@ -60,4 +65,8 @@ export class MemeReviewComponent implements OnInit {
     return this.memesData;
   }
 
+  async deleteMeme(id: string) {
+    await this.http.delete(`/api/memes/${id}`).toPromise();
+    window.location.reload();
+  }
 }

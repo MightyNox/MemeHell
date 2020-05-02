@@ -7,9 +7,16 @@
         <div class="card text-white bg-dark" style="margin: 5% 0">
 
           <div class="card-header">
-            <h5 class="card-title text-left">
-              <a href="/meme/{{meme.id}}">{{meme.title}}</a>
-            </h5>
+            <div class="card-title ">
+              <span class="text-left" style="font-size: x-large; margin-right: 60%">
+                <a href="/meme/{{meme.id}}">{{meme.title}}</a>
+              </span>
+
+              <!-- //TODO  === 'admin' -->
+              <button class="btn btn-danger" (click)="deleteMeme(meme.id)">
+                <fa-icon *ngIf="auth.CurrentUser.rank" [icon]="trashIcon"></fa-icon>
+              </button>
+            </div>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item text-left bg-secondary">
