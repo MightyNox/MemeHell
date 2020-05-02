@@ -5,7 +5,7 @@ import {
   faHome,
   faImages,
   faSignInAlt,
-  faSignOutAlt,
+  faSignOutAlt, faTag,
   faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from '../auth/services/auth.service';
@@ -23,7 +23,8 @@ export class MenuComponent implements OnInit {
     register: faUserPlus,
     login: faSignInAlt,
     logout: faSignOutAlt,
-    stats: faChartPie
+    stats: faChartPie,
+    tags: faTag,
   };
 
   constructor(readonly authService: AuthService) {

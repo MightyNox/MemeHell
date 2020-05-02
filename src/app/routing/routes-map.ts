@@ -7,6 +7,7 @@ import {RegisterComponent} from '../auth/components/register/register.component'
 import {RoutingGuardService} from './routing-guard.service';
 import {LogoutComponent} from '../auth/components/logout/logout.component';
 import {MemeViewComponent} from '../meme/meme-view/meme-view.component';
+import {MemeTagCreationComponent} from '../meme/meme-tag-creation/meme-tag-creation.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,12 @@ const routes: Routes = [
     component: MemeUploadComponent,
     canActivate: [RoutingGuardService]
   },
+  {
+    path: 'meme-tag',
+    component: MemeTagCreationComponent,
+    canActivate: [RoutingGuardService]
+  }
+  ,
   {
     path: 'login',
     component: LoginComponent

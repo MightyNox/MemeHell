@@ -4,10 +4,11 @@ import {MemeReviewComponent} from './meme-review/meme-review.component';
 import {MemeUploadComponent} from './meme-upload/meme-upload.component';
 import {MemeViewComponent} from './meme-view/meme-view.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MemeTagCreationComponent} from './meme-tag-creation/meme-tag-creation.component';
 
 
 @NgModule({
-  declarations: [MemeReviewComponent, MemeUploadComponent, MemeViewComponent],
+  declarations: [MemeReviewComponent, MemeUploadComponent, MemeViewComponent, MemeTagCreationComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
