@@ -12,6 +12,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AuthModule} from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import {MemeModule} from './meme/meme.module';
+import {AdminPanelModule} from './admin-panel/admin-panel.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MemeModule} from './meme/meme.module';
     FontAwesomeModule,
     MemeModule,
     AuthModule,
-    HttpClientModule
+    HttpClientModule,
+    AdminPanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
