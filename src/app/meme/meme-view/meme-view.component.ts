@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
+import {AuthService} from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,20 @@ export class MemeViewComponent implements OnInit {
   public meme: any;
 
   constructor(private readonly http: HttpClient,
-              private route: ActivatedRoute) {
+              private readonly route: ActivatedRoute,
+              private readonly authService: AuthService) {
   }
 
   async ngOnInit(): Promise<void> {
     const id = this.route.snapshot.paramMap.get('id');
     this.meme = await this.http.get(`/api/memes/get/${id}`).toPromise();
+  }
+
+  async rateUp() {
+    const headers = {
+      Authorization: `Bearer ${this.authService.CurrentUser.token}`
+    };
+    await this.http.put(`/api/memes/rateplus/${this.meme.id}`, {},{ headers }).toPromise();
+    window.location.reload();
   }
 }

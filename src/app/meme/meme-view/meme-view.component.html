@@ -25,8 +25,16 @@
           <img class="card-img-bottom" src="/api/memes/single/{{meme.id}}" alt="Meme not found :(">
         </div>
 
-        <div class="card-footer text-left">
-          30.03.2020/21:00
+        <div class="card-footer">
+          <span class="text-left" style="margin-right: 20%">
+            30.03.2020/21:00
+          </span>
+          <span class="text-right" style="margin-left: 20%">
+            Rating: {{meme.rating.value}}
+            <button class="btn btn-danger" (click)="rateUp()">
+              +
+            </button>
+          </span>
         </div>
       </div>
     </div>
