@@ -37,6 +37,31 @@
           </span>
         </div>
       </div>
+
+      <!-- Adding comment -->
+      <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+        <div class="card border-secondary text-white bg-dark">
+          <div class="card-body row form-group">
+            <div class="col-xs-8 col-md-9 col-xl-10">
+              <div class="row justify-content-center">
+              <textarea formControlName="commentText" class="form-control ml-1 mr-1" rows="3"
+                        placeholder="Hello I'm Mr. Puffin, share your opinion with me!"> </textarea>
+              </div>
+            </div>
+
+            <div class="col-xs-4 col-md-3 col-xl-2">
+              <div class="row justify-content-center">
+
+                <button class="btn btn-danger ml-1 mr-1" type="submit">
+                  Add Comment
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
     </div>
 
     <div class="col-md-3"></div>
