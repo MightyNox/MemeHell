@@ -35,9 +35,9 @@ export class MemeUploadComponent implements OnInit {
   async uploadMeme() {
     const formValue = this.uploadForm.value;
     const body = {
-      Type: 'jpg', // TODO get
+      Type: 'png',
       Author: this.authService.CurrentUser.nickname,
-      FileName: 'FileNameTest',
+      FileName: 'meme',
       Title: formValue.title,
       Tags: formValue.tags,
     };
