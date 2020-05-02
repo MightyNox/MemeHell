@@ -15,6 +15,37 @@
       <div class="row justify-content-center" style="margin-top: 2%">
         <h3>Total Memes Count: {{memesCount}}</h3>
       </div>
+
+      <!-- Ban -->
+      <div class="row justify-content-center" style="margin-top: 30%">
+        <h3>Users List</h3>
+      </div>
+      <div class="row justify-content-center" style="margin-top: 2%">
+        <table class="table">
+
+          <thead>
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Ban</th>
+          </tr>
+          </thead>
+
+          <tbody *ngFor="let user of users">
+          <th>
+            {{user.nickname}}
+          </th>
+          <td>
+            {{user.rank}}
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="banUser(user.id)">
+              <fa-icon [icon]="banIcon"></fa-icon>
+            </button>
+          </td>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <div class="col-md-3"></div>
