@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {AuthService} from '../../auth/services/auth.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class MemeViewComponent implements OnInit {
 
+  trashIcon;
   public meme: any;
   public comments: any;
 
@@ -18,11 +20,12 @@ export class MemeViewComponent implements OnInit {
 
   constructor(private readonly http: HttpClient,
               private readonly route: ActivatedRoute,
-              private readonly authService: AuthService,
+              readonly auth: AuthService,
               private readonly formBuilder: FormBuilder) {
     this.commentForm = this.formBuilder.group({
       commentText: [],
     });
+    this.trashIcon = faTrashAlt;
   }
 
   async ngOnInit(): Promise<void> {
@@ -33,7 +36,7 @@ export class MemeViewComponent implements OnInit {
 
   async rateUp() {
     const headers = {
-      Authorization: `Bearer ${this.authService.CurrentUser.token}`
+      Authorization: `Bearer ${this.auth.CurrentUser.token}`
     };
     await this.http.put(`/api/memes/rateplus/${this.meme.id}`, {}, {headers}).toPromise();
     window.location.reload();
@@ -41,7 +44,7 @@ export class MemeViewComponent implements OnInit {
 
   async addComment() {
     const headers = {
-      Authorization: `Bearer ${this.authService.CurrentUser.token}`
+      Authorization: `Bearer ${this.auth.CurrentUser.token}`
     };
     const body = {
       Content: this.commentForm.value.commentText,
@@ -54,5 +57,10 @@ export class MemeViewComponent implements OnInit {
 
   private async getComments() {
     this.comments = await this.http.get(`api/comments/getbyid?id=${this.meme.id}`).toPromise();
+  }
+
+  async deleteComment(id: string) {
+    await this.http.delete(`/api/comments/${id}`).toPromise();
+    window.location.reload();
   }
 }

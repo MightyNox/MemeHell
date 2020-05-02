@@ -73,6 +73,9 @@
               {{comment.content}}
             </div>
             <div class="col-xs-1 col-md-3 col-xl-2">
+              <button class="btn btn-danger" (click)="deleteComment(comment.id)">
+                <fa-icon *ngIf="auth.CurrentUser.rank" [icon]="trashIcon"></fa-icon>
+              </button>
             </div>
           </div>
         </div>
